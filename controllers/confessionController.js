@@ -1,4 +1,4 @@
-
+const { DELETE_TOKEN } = require("../config/config");
 const confessionService = require('../services/confessionService')
 
 function createConfession(req, res) {
@@ -57,7 +57,7 @@ function deleteConfession(req, res) {
   const result = confessionService.deleteConfession(
     req.params.id,
     req.headers['x-delete-token'],
-    'supersecret123'
+    'DELETE_TOKEN'
   )
 
   if (result.error) {

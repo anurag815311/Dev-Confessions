@@ -73,3 +73,23 @@ The existing API routes and response formats are retained.
 5. Existing API endpoint paths and response formats are retained.
 
 **Why:** The original application combined all responsibilities in app.js. Introducing MVC separation improves maintainability, readability, testability, and code organisation.
+
+
+## Move 5: Externalise Configuration and Secrets
+
+### Changes made
+- Added dotenv to load environment variables.
+- Moved the server port into the PORT environment variable.
+- Moved the delete API token into the DELETE_TOKEN environment variable.
+- Updated the configuration module to centralise environment settings.
+- Added .env.example as a configuration template.
+- Updated .gitignore to exclude .env and node_modules.
+- Ensured package.json and package-lock.json remain tracked.
+
+### Why?
+Hardcoded secrets and configuration make applications difficult to configure
+across different environments and can expose sensitive information.
+
+### Behaviour preservation
+The default port remains 3000, and the local delete token remains unchanged.
+The API routes and response formats should remain unchanged.
