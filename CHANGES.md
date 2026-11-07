@@ -93,3 +93,21 @@ across different environments and can expose sensitive information.
 ### Behaviour preservation
 The default port remains 3000, and the local delete token remains unchanged.
 The API routes and response formats should remain unchanged.
+
+## Move 6: Centralised Error Handling and Logging
+
+### Changes made
+- Added reusable logging utility.
+- Added centralised Express error-handling middleware.
+- Registered error middleware after application routes.
+- Replaced scattered console.log statements with structured logging.
+- Added error logging for unexpected application failures.
+- Fixed the DELETE_TOKEN variable reference in the delete controller.
+
+### Why?
+Centralised error handling improves maintainability and ensures unexpected
+errors are handled consistently. Logging helps developers debug issues.
+
+### Behaviour preservation
+Existing successful API responses and known validation responses are preserved.
+Unexpected errors now receive a consistent JSON response.
