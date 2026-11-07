@@ -48,3 +48,28 @@ Splitting the operations into dedicated functions improves separation of concern
 
 The existing API routes and response formats are retained.
 
+
+## Move 4 - MVC Folder Structure
+
+### Files Created
+
+- config/config.js - centralises valid confession categories.
+- routes/confessionRoutes.js - defines API routes and delegates requests to controllers.
+- controllers/confessionController.js - extracts request data, calls services, and sends HTTP responses.
+- services/confessionService.js - contains confession creation, retrieval, filtering, and deletion logic.
+- server.js - handles Express server startup.
+
+### Files Modified
+
+- app.js - now configures Express middleware and registers confession routes.
+- package.json - updates application startup scripts to use server.js.
+
+### Architectural Decisions
+
+1. Routes contain no business logic.
+2. Controllers do not directly manipulate the confession collection.
+3. Services contain the business logic and in-memory storage operations.
+4. Server startup is separated from Express application configuration.
+5. Existing API endpoint paths and response formats are retained.
+
+**Why:** The original application combined all responsibilities in app.js. Introducing MVC separation improves maintainability, readability, testability, and code organisation.
