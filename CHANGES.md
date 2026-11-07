@@ -111,3 +111,22 @@ errors are handled consistently. Logging helps developers debug issues.
 ### Behaviour preservation
 Existing successful API responses and known validation responses are preserved.
 Unexpected errors now receive a consistent JSON response.
+
+## Move 7: Dedicated Validation Layer
+
+### Changes made
+- Created a dedicated confessionValidator.js module.
+- Moved confession creation validation out of the service.
+- Centralised category validation.
+- Improved validation of confession text types.
+- Replaced direct console logging with the reusable logger.
+- Prevented getAllConfessions from mutating the original array during sorting.
+- Cleaned up duplicate route definitions.
+
+### Why?
+Separating validation from business logic improves maintainability,
+readability, and code reusability.
+
+### Behaviour preservation
+Existing API routes and standard successful responses remain unchanged.
+Invalid non-string confession text is now rejected.
